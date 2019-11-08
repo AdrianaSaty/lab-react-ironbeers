@@ -26,3 +26,27 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.img-home {
+  max-width: 100%;
+}
+
+.img-icon {
+  height: 180px;
+  padding: 20px 50px;
+}
+
+.container {
+  max-width: 100%;
+  width: 670px;
+  padding: 0 20px;
+}
+
+.container p {
+  color: gray;
+  margin-top: 5px;
+}
+
+.container h2 {
+  margin: 0;
+}

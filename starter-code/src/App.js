@@ -1,43 +1,29 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 import './App.css';
-import AllBeers from './components/AllBeers';
-import BeersDetails from './components/BeersDetails';
-import RandomBeer from './components/RandomBeer';
-import NewBeer from './components/NewBeer';
-import Home from './components/Home';
-import axios from 'axios';
-
+import AllBeers from './components/pages/AllBeers';
+import BeersDetails from './components/pages/BeersDetails';
+import RandomBeer from './components/pages/RandomBeer';
+import NewBeer from './components/pages/NewBeer';
+import Home from './components/pages/Home';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
-  // state = {
-  //   allBeers : []
-  // }
-
-  // async componentDidMount() {
-  //   let allBeers = await this.getAllBeers();
-
-  //   this.setState({
-  //     allBeers: allBeers,
-  //   })
-  // }
-
-
-  // getAllBeers = async () => {
-  //   const response = await axios.get('https://ih-beers-api2.herokuapp.com/beers');
-
-  //   // console.log(response.data)
-  //   return response.data;
-  // }
+ 
 
   render() {
-    // console.log(this.allBeers)
     return (
       <div >
          <BrowserRouter>
+          <Link to="/">
+            <img 
+                src='./images/home.png'
+                alt='home.png'    
+              />
+          </Link>
           <Route exact path="/" component={Home} />
           <Route exact path="/beers" component={AllBeers} />
-          <Route path="/beers/:_id" component={BeersDetails} />
+          <Route path="/beers/:id" render={(props) => <BeersDetails {...props} /> } />
           <Route path="/random-beer" component={RandomBeer} />
           <Route path="/new-beer" component={NewBeer} />
         </BrowserRouter>
